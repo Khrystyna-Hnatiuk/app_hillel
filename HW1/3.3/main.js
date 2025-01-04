@@ -1,5 +1,6 @@
 
 let digit = 10369;
 let toString= digit.toString();
-let changedNumber = toString.split('')
-console.log(changedNumber)
+let toSplit = toString.split('') //[1,0,3,6,9]
+let numberArray= toSplit.join(' ') //1 0 3 6 9
+console.log(numberArray)
