@@ -1,6 +1,6 @@
 
-let digit = 10369;
-let toString= digit.toString();
-let toSplit = toString.split('') //[1,0,3,6,9]
-let numberArray= toSplit.join(' ') //1 0 3 6 9
+const digit = 10369;
+const toString = digit.toString();
+const splittedDigitt = toString.split('') //[1,0,3,6,9]
+const numberArray= splittedDigitt.join(' ') //1 0 3 6 9
 console.log(numberArray)
