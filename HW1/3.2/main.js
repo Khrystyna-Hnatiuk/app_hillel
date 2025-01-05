@@ -1,7 +1,6 @@
-let str1 = prompt('Enter 1 text');
-let str2 = prompt('Enter 2 text');
-let str3 = prompt('Enter 3 text');
+const myName =prompt('Write your name');
+const age =prompt('Write your age');
+const city =prompt('Write your city');
 
-console.log(`text 1 ${str1}`)
-console.log(`text 2 ${str2}`)
-console.log(`text 3 ${str3}`)
+console.log(`My name ${myName}, i am ${age} years old. I live in ${city}`)
+
