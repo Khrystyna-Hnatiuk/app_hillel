@@ -1,6 +1,6 @@
-let birthYear = +prompt("enter year of your birthday");
-let city = prompt("Enter your city");
-let favouriteSport = prompt("Enter favourite type of sport");
+const birthYear = +prompt("enter year of your birthday");
+const city = prompt("Enter your city");
+const favouriteSport = prompt("Enter favourite type of sport");
 let message = "";
 
 if (birthYear>0) {
