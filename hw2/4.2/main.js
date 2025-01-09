@@ -1,4 +1,4 @@
-const digit = +prompt("enter number");
+const digit = prompt("enter number");
 const splittedDigit = digit.toString().split("");
 if (
   splittedDigit[0] == splittedDigit[1] &&
