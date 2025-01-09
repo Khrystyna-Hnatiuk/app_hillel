@@ -1,5 +1,6 @@
 const digit = prompt("enter number");
-const splittedDigit = digit.toString().split("");
+const splittedDigit = digit.split("");
+console.log(splittedDigit)
 if (
   splittedDigit[0] == splittedDigit[1] &&
   splittedDigit[1] == splittedDigit[2] &&
