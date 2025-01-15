@@ -4,7 +4,7 @@ let input = parseInt(prompt("enter number"));
 let num = parseInt(input, 10);
 //
 if (isNaN(num) || num <= 1) {
-  console.log("Введіть число більше 1");
+  console.log("Enter number > 1");
 } else {
   let isSimple = true;
 
@@ -15,8 +15,8 @@ if (isNaN(num) || num <= 1) {
     }
   }
   if (isSimple) {
-    console.log("просте число");
+    console.log(`${num} is a simple number`);
   } else {
-    console.log("не просте число");
+    console.log(`${num} is not simple number`);
   }
 }
