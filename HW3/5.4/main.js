@@ -8,15 +8,15 @@ if (isNaN(num) || num <= 1) {
 } else {
   let isSimple = true;
 
-  for (let i = 2; i < num; i++) {
+  for (let i = 2; i < Math.sqrt(num); i++) {
     if (num % i === 0) {
       isSimple = false;
       break;
     }
   }
   if (isSimple) {
-    console.log(`${num} is a simple number`);
+    console.log(`${num} is a prime number`);
   } else {
-    console.log(`${num} is not simple number`);
+    console.log(`${num} is not prime number`);
   }
 }
