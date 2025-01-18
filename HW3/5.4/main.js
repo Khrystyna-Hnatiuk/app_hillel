@@ -8,7 +8,7 @@ if (isNaN(num) || num <= 1) {
 } else {
   let isSimple = true;
 
-  for (let i = 2; i < Math.sqrt(num); i++) {
+  for (let i = 2; i <= Math.sqrt(num); i++) {
     if (num % i === 0) {
       isSimple = false;
       break;
