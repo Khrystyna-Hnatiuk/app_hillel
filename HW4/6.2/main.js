@@ -1,12 +1,12 @@
 function averageSum(arr) {
-    const newarray = arr.filter((item) => typeof item === "number");
-    console.log(newarray);
-    if (newarray.length === 0) {
-      return "0 numeric  in array";
+    const newArray = arr.filter((item) => typeof item === "number");
+    console.log(newArray);
+    if (newArray.length === 0) {
+      return 0;
     }
   
-    const sum = newarray.reduce((accum, current) => accum + current, 0);
-    const average = sum / newarray.length;
+    const sum = newArray.reduce((accum, current) => accum + current, 0);
+    const average = sum / newArray.length;
   
     return average;
   }
