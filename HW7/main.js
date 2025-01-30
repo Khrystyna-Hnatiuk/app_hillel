@@ -29,16 +29,16 @@ let company = {
     }
 }
 
-function countSalary(company){
-    let sum=0;
-    for(let key in company){
-        if(Array.isArray(company[key])){
-            for(let elem of company[key]){
-                sum+=elem.salary
+function countSalary(company) {
+    let sum = 0;
+    for (let key in company) {
+        if (Array.isArray(company[key])) {
+            for (let elem of company[key]) {
+                sum += elem.salary
             }
         }
-        else if(typeof(company[key])==='object' && company[key]!==null){
-            sum+=countSalary(company[key])
+        else if (typeof (company[key]) === 'object' && company[key] !== null) {
+            sum += countSalary(company[key])
         }
     }
     return sum
