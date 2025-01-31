@@ -33,9 +33,7 @@ function countSalary(company) {
     let sum = 0;
     for (let key in company) {
         if (Array.isArray(company[key])) {
-            for (let elem of company[key]) {
-                sum += elem.salary
-            }
+            sum+= company[key].reduce((acc,curr)=>acc+curr.salary,0)
         }
         else if (typeof (company[key]) === 'object' && company[key] !== null) {
             sum += countSalary(company[key])
