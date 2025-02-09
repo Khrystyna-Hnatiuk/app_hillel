@@ -17,3 +17,4 @@ btn.addEventListener('click', () => {
     image.src = `./images/${randomSrc}`
 
 })
+
