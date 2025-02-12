@@ -6,27 +6,43 @@ let btn1 = document.getElementById('btn1')
 let btn2 = document.getElementById('btn2');
 let promptUrl;
 
-function isValidUrl(url){
-try{
-    new URL(url);
-    return true;
-}
-catch{
-    return false
-}
+function isValidUrl(url) {
+    try {
+        new URL(url);
+        return true;
+    }
+    catch {
+        return false
+    }
 
 
 }
-btn1.addEventListener('click',()=>{
-     promptUrl = prompt('Введіть посилання');
-})
+btn1.addEventListener('click', () => {
+    promptUrl = prompt('Введіть посилання');
+    if (promptUrl === null || promptUrl.trim() === '') {
+        console.log('посилання не введено');
+        return
+    }
 
-btn2.addEventListener('click',()=>{
-    if(isValidUrl(promptUrl)){
-        window.location.href = promptUrl;
-    
-        }
-    else{
+
+    if (isValidUrl(promptUrl)) {
+        console.log('Посилання збережене')
+    }
+    else {
         console.log('Введіть коректне посилання')
     }
+
+})
+
+btn2.addEventListener('click', () => {
+    if (promptUrl) {
+        if (isValidUrl(promptUrl)) {
+            window.location.href = promptUrl;
+
+        }
+        else {
+            console.log('Введіть коректне посилання')
+        }
+    }
+
 })
