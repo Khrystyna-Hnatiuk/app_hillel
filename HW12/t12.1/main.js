@@ -37,8 +37,8 @@ btn1.addEventListener('click', () => {
 btn2.addEventListener('click', () => {
     if (promptUrl) {
         if (isValidUrl(promptUrl)) {
-            window.location.href = promptUrl;
-
+            // window.location.href = promptUrl;
+window.open(promptUrl,'_blank')
         }
         else {
             console.log('Введіть коректне посилання')
