@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hw13</title>
+    <script src="main.js" defer></script>
+    <style>
+        #form {
+            width: 400px;
+            background-color: rgba(196, 196, 196, 0.404);
+            height: 400px;
+            border-radius: 30px;
+            display: flex;
+            flex-direction: column;
+            margin: 70px auto;
+        }
+
+        input {
+            height: 35px;
+            width: 80%;
+            margin: 0 auto;
+            margin-top: 20px;
+            border-radius: 10px;
+            padding-left: 10px;
+            border: none;
+
+        }
+
+        input[name="message"] {
+            height: 60px;
+        }
+
+        label {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-left: 8%;
+            color: grey;
+        }
+
+        input::placeholder {
+            color: gray;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 14px;
+        }
+
+        #help {
+            color: rgb(196, 46, 71);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: bold;
+            margin: 0 auto;
+            padding-top: 15px;
+        }
+
+        button {
+            background-color: rgb(64, 64, 197);
+            border: none;
+            width: 70%;
+            margin: 0 auto;
+            margin-top: 20px;
+            padding: 10px;
+            color: white;
+            font-weight: bold;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            border-radius: 20px;
+        }
+        p{
+            padding-left: 20px;
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form">
+        <label id="help">We would like to help you</label>
+        <input type="text" name="name" id="name" placeholder="Name" >
+        <input type="text" name="message" id="message" placeholder="Message" >
+        
+        <label for="phone">How to answer you?</label>
+
+        <input type="text" name="phone" id="phone" placeholder="Phone number" >
+        <input type="email" name="email" id="email" placeholder="Email here" >
+        <button type="submit">Send message</button>
+        <p id="input-error"></p>
+
+    </form>
+
+</body>
+
+</html>
