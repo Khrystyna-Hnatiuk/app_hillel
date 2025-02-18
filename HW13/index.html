@@ -10,8 +10,10 @@
     <style>
         #form {
             width: 400px;
+            position: relative;
             background-color: rgba(196, 196, 196, 0.404);
             height: 400px;
+            padding-bottom: 60px;
             border-radius: 30px;
             display: flex;
             flex-direction: column;
@@ -58,19 +60,30 @@
         button {
             background-color: rgb(64, 64, 197);
             border: none;
+            position: absolute;
+            bottom: 20px;
+            transform: translateX(-50%); 
+            left: 50%;
             width: 70%;
-            margin: 0 auto;
-            margin-top: 20px;
             padding: 10px;
             color: white;
             font-weight: bold;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             border-radius: 20px;
         }
-        p{
+
+        p {
             padding-left: 20px;
             color: red;
             font-weight: bold;
+        }
+
+        .error-message {
+            color: red;
+            font-weight: bold;
+            font-size: 14px;
+            margin-top: 5px;
+            margin-left: 10px;
         }
     </style>
 </head>
@@ -79,14 +92,20 @@
     <form id="form">
         <label id="help">We would like to help you</label>
         <input type="text" name="name" id="name" placeholder="Name" >
-        <input type="text" name="message" id="message" placeholder="Message" >
-        
+        <p id="name-error" class="error-message"></p>
+
+        <input type="text" name="message" id="message" placeholder="Message" max="200">
+        <p id="message-error" class="error-message"></p>
+
         <label for="phone">How to answer you?</label>
 
-        <input type="text" name="phone" id="phone" placeholder="Phone number" >
-        <input type="email" name="email" id="email" placeholder="Email here" >
+        <input type="text" name="phone" id="phone" placeholder="Phone number">
+        <p id="phone-error" class="error-message"></p>
+
+        <input type="email" name="email" id="email" placeholder="Email here">
+        <p id="email-error" class="error-message"></p>
+
         <button type="submit">Send message</button>
-        <p id="input-error"></p>
 
     </form>
 

@@ -1,49 +1,53 @@
 
-let form = document.getElementById('form');
-let nameForm = document.getElementById('name');
-let message = document.getElementById('message');
-let phoneNumber = document.getElementById('phone');
-let email = document.getElementById('email');
-let inputError = document.getElementById('input-error');
+const form = document.getElementById('form');
+const nameForm = document.getElementById('name');
+const message = document.getElementById('message');
+const phoneNumber = document.getElementById('phone');
+const email = document.getElementById('email');
+
+const nameError = document.getElementById('name-error');
+const phoneError = document.getElementById('phone-error');
+const messageError = document.getElementById('message-error');
+const emailError = document.getElementById('email-error');
+
 let phoneRegExp = /^\+380\d{9}$/;
 let emailRegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+let isValid = true;
 
-form.addEventListener('submit', function(event)  {
+form.addEventListener('submit', function (event) {
     event.preventDefault();
-    inputError.innerHTML = ''; 
-    let errors = [];
-    
+    nameError.innerHTML = '';
+    messageError.innerHTML = '';
+    phoneError.innerHTML = '';
+    emailError.innerHTML = '';
+
+
     if (nameForm.value.trim() === '') {
-        errors.push('Name is required');
+        isValid = false;
+        nameError.textContent = 'Name is required'
     }
-    
+
     if (message.value.trim().length < 5) {
-        errors.push('Message must be at least 5 characters long');
+        messageError.textContent = 'Message must be at least 5 characters long'
+        isValid = false;
     }
-    
-    if (!phoneNumber.value.trim().match(phoneRegExp)) {
-        errors.push('Phone must start with +380 and include 9 digits after');
+
+    if (!phoneRegExp.test(phoneNumber.value.trim())) {
+        phoneError.textContent = 'Phone must start with +380 and include 9 digits after'
+        isValid = false;
     }
 
     if (!emailRegExp.test(email.value)) {
-        errors.push('Email must include @ and .');
+        emailError.textContent = 'Email must include @ and .'
+        isValid = false;
     }
-    
-    if (errors.length > 0) {
-        errors.forEach(error => {
-            const errorElement = document.createElement('div');
-            errorElement.textContent = error;
-            errorElement.style.color = 'red';
-            inputError.appendChild(errorElement);
-        });
-    } else {
+    if (isValid) {
         console.log('Form submitted!');
         console.log('Name:', nameForm.value);
         console.log('Message:', message.value);
         console.log('Phone:', phoneNumber.value);
         console.log('Email:', email.value);
-      
-        
-        form.reset(); 
+        form.reset();
     }
+
 });
