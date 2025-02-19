@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image slider</title>
+    <script src="main.js" defer></script>
+    <style>
+        img {
+            width: 300px;
+            height: 400px;
+        }
+
+        .image-slider {
+            position: relative;
+            background-color: rgb(191, 204, 204);
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
+            width: 550px;
+            height: 500px;
+            margin: 0 auto;
+        }
+
+        button {
+            margin-right: 20px;
+            border: none;
+            border-radius: 30px;
+            width: 80px;
+            height: 20px;
+            background-color: rgb(146, 141, 141);
+        }
+
+        #btn-prev,
+        #btn-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        #btn-prev {
+            left: 20px;
+        }
+
+        #btn-next {
+            right: 10px;
+        }
+
+        #image-dott {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            position: absolute;
+            bottom: 20px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .active {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="image-slider">
+        <button id="btn-prev">Previous</button>
+        <img id="image" src="img1.jpg" alt="img">
+        <button id="btn-next">Next</button>
+
+        <div id="image-dott"></div>
+    </div>
+
+
+</body>
+
+</html>
