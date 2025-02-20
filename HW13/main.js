@@ -1,4 +1,3 @@
-
 const form = document.getElementById('form');
 const nameForm = document.getElementById('name');
 const message = document.getElementById('message');
@@ -25,11 +24,11 @@ function validateName() {
 }
 function validateMessage() {
     if (formSubmitted) {
-        if (message.value.trim().length < 5) {
-            messageError.textContent = 'Message must be at least 5 characters long'
+        if (message.value.length < 5) {
+            messageError.textContent = 'Message length mustbe at least 5 characters long'
         }
         else {
-            messageError.textContent = ''
+            messageError.textContent = '';
         }
     }
 }
@@ -45,49 +44,42 @@ function validateEmail() {
 }
 function validatePhone() {
     if (formSubmitted) {
-        if (!phoneRegExp.test(phoneNumber.value.trim())) {
-            phoneError.textContent = 'Phone must start with +380 and include 9 digits after'
+        if (!phoneRegExp.test(phoneNumber.value)) {
+            phoneError.textContent = 'Phone number must start with +380 and include 9 characters after it'
         }
         else {
             phoneError.textContent = ''
         }
     }
 }
-
-form.addEventListener('submit', function (event) {
-    event.preventDefault();
+form.addEventListener('submit', () => {
+    event.preventDefault()
     formSubmitted = true;
 
     validateName();
-    validateMessage();
     validatePhone();
-    validateEmail()
-
-
+    validateEmail();
+    validateMessage();
     if (!nameError.textContent && !phoneError.textContent && !emailError.textContent && !messageError.textContent) {
-        console.log('Form submitted!');
-        console.log('Name:', nameForm.value);
-        console.log('Message:', message.value);
-        console.log('Phone:', phoneNumber.value);
-        console.log('Email:', email.value);
-        form.reset();
+        console.log('Name:', nameForm.value)
+        console.log('Message:', message.value)
+        console.log('Phone:', phoneNumber.value)
+        console.log('Email:', email.value)
         formSubmitted = false;
+        form.reset();
     }
 
 });
 
-[nameForm, message, email, phoneNumber].forEach(item => {
-    item.addEventListener('change', function () {
+
+[nameForm, email, message, phoneNumber].forEach(inputElement => {
+    inputElement.addEventListener('change', function () {
         if (formSubmitted) {
-            if (this === nameForm) validateName()
+            if (this === nameForm) validateName();
             if (this === email) validateEmail()
-            if (this === message) validateMessage()
-            if (this === phoneNumber) validatePhone()
+            if (this === phoneNumber) validatePhone();
+            if (this === message) validateMessage();
         }
 
     })
 })
-
-
-
-
