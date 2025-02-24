@@ -1,9 +1,8 @@
 
+
 const btnAdd = document.querySelector('.form__btn');
 const inputElement = document.querySelector('.form__input');
 const toDoWrapper = document.querySelector('.js--todos-wrapper');
-const spanElement = document.querySelectorAll('.todo-item__description');
-const checkedInput = document.querySelectorAll('input[type="checkbox"]');
 
 window.onload = function () {
     getTasks().forEach(task => {
@@ -11,15 +10,30 @@ window.onload = function () {
     });
 };
 function getTasks() {
-    return JSON.parse(localStorage.getItem('toDos')) || [];
+    try {
+        return JSON.parse(localStorage.getItem('toDos')) || [];
+    }
+    catch (error) {
+        console.log('error in reading from localStorage', error)
+        return []
+    }
 }
 function saveTasks(tasks) {
-    localStorage.setItem('toDos', JSON.stringify(tasks));
-}
+    try{
+            localStorage.setItem('toDos', JSON.stringify(tasks));
+
+    }
+    catch(error){
+        console.log('error in saving to localStorage', error)
+    }
+};
+
+
 function createTaskElement(task) {
     const newElement = document.createElement('li');
     newElement.classList.add('todo-item');
     newElement.dataset.id = task.id;
+
     const input = document.createElement('input');
     input.type = 'checkbox';
     input.checked = task.checked;
@@ -33,6 +47,7 @@ function createTaskElement(task) {
     const btnDelete = document.createElement('button');
     btnDelete.classList.add('todo-item__delete')
     btnDelete.textContent = 'Видалити';
+
     newElement.appendChild(input);
     newElement.appendChild(span);
     newElement.appendChild(btnDelete);
@@ -60,13 +75,17 @@ toDoWrapper.addEventListener('change', function (event) {
 
     }
 });
-toDoWrapper.addEventListener('click', function () {
+
+//delete Task
+toDoWrapper.addEventListener('click', function (event) {
     if (event.target.tagName === 'BUTTON' && event.target) {
         let li = event.target.closest('.todo-item');
         const tasks = getTasks();
+
         let id = li.dataset.id;
         const updatedTasks = tasks.filter(task => task.id !== id);
         saveTasks(updatedTasks);
+
         toDoWrapper.removeChild(li)
     }
 
@@ -74,8 +93,12 @@ toDoWrapper.addEventListener('click', function () {
 
 btnAdd.addEventListener('click', function (event) {
     event.preventDefault();
+
     if (inputElement.value.trim() !== '') {
         const tasks = getTasks();
+        const existingTasks = tasks.some(task => task.text === inputElement.value.trim());
+        if (existingTasks) return
+
         const newTask = {
             text: inputElement.value,
             checked: false,
@@ -88,3 +111,4 @@ btnAdd.addEventListener('click', function (event) {
     }
     inputElement.value = ''
 })
+
