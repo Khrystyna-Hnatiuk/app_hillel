@@ -112,3 +112,4 @@ btnAdd.addEventListener('click', function (event) {
     inputElement.value = ''
 })
 
+// localStorage.clear()
