@@ -25,7 +25,7 @@ class Student {
         let averageMark = (sum / this.#marksArray.length).toFixed(3);
         return averageMark;
     }
-    set marks(mark) {
+    addMark(mark) {
         if (typeof (mark) === 'number' && mark >= 0 && mark <= 100) {
             this.#marksArray.push(mark)
         }
