@@ -1,17 +1,10 @@
 class Student {
     #marksArray = [];
     #presentArray = [];
-    constructor(name, surname, birthYear, marksArray = [], presentArray = []) {
+    constructor(name, surname, birthYear) {
         this.name = name;
         this.surname = surname;
         this.birthYear = birthYear;
-
-        if (Array.isArray(marksArray)) {
-            this.#marksArray = marksArray;
-        }
-        if (Array.isArray(presentArray)) {
-            this.#presentArray = presentArray;
-        }
 
     }
     getAge() {
@@ -68,7 +61,10 @@ class Student {
         return [...this.#marksArray]
     }
     get presense() {
-        return this.#presentArray.length
+
+        return this.#presentArray.filter(value => value === true).length
+
+
     }
 
 
