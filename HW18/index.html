@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймер відліку</title>
+    <script src="main.js" defer></script>
+    <style>
+        .timer{
+            display: flex;
+            flex-direction: row;
+            width: 200px;
+            /* border: 1px solid firebrick; */
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            background: linear-gradient(to left,rgb(119, 119, 173), rgb(162, 162, 204), rgb(76, 76, 148),rgb(25, 25, 128));
+
+        }
+        .timer__container{
+            
+            margin: 100px auto;
+            color: rgb(13, 17, 80);
+        }
+        .stop--interval{
+           border-radius: 20px;
+           width: 30%;
+           padding: 20px 20px;
+           text-align: center;
+           background-color: rgb(178, 178, 206);
+           color: rgb(13, 17, 80);
+           margin: 0 auto;
+           font-size: 20px;
+
+        }
+       
+        
+    </style>
+</head>
+<body>
+    <div class="timer__container">
+    <h1>Таймер відліку</h1>
+    <div class="timer">
+    <h2 class="minutes">01</h2>
+    <h4>:</h4>
+    <h2 class="seconds">25</h2>
+    </div>
+</div>
+</body>
+</html>
