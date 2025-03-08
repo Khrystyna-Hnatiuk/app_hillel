@@ -1,0 +1,54 @@
+body {
+    background-color: black;
+    font-family: "Inter", sans-serif;
+}
+
+.weather-forecast {
+    background-color: rgb(3, 3, 37);
+    border-radius: 20px;
+    border: 2px solid rgb(18, 18, 87);
+    width: 500px;
+    min-height: 300px;
+    margin: 50px auto;
+    color: white;
+    padding: 40px 30px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    box-shadow: 1px 1px 4px 15px rgb(6, 6, 73) inset;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: rgb(219, 219, 235);
+    font-size: 20px;
+    border-radius: 20px;
+    border: 1px solid floralwhite;
+    font-weight: bold;
+    margin-top: 10px;
+    color: navy;
+}
+
+.img1 {
+    width: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.img2{
+    width: 100px;
+    position: absolute;
+    right: 0;
+    bottom:  0;
+}
+.img-wind{
+    width: 50px;
+}
+.wind__container{
+    display: flex;
+    gap: 10px;
+}

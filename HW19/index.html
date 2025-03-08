@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather app</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+
+</head>
+
+<body>
+    <div class="weather-forecast">
+        <img class="img1" src="1530390_weather_clouds_cloudy_rain_sunny_icon.png" alt="">
+        <h2 class="city">City: </h2>
+        <h3 class="temp"></h3>
+        <h3 class="humidity"></h3>
+        <h3 class="description"></h3>
+        <div class="wind__container">
+            <img class="img-wind" src="3741354_weather_wind_windy_icon.png" alt="">
+            <h3 class="wind"></h3>
+        </div>
+        <button class="btn">Update data</button>
+        <img class="img2" src="390473_temperature_weather_forecast_thermometer_icon.png" alt="">
+
+    </div>
+
+    <script>
+        let apiKey = 'ffbc3005d9df13bc4a3b8edbbb8883b0';
+        let lat = 50.433;
+        let lon = 30.516;
+
+        let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=en`;
+        let btn = document.querySelector('.btn');
+        let city = document.querySelector('.city');
+        let temp = document.querySelector('.temp');
+        let humidity = document.querySelector('.humidity');
+        let description = document.querySelector('.description');
+        let wind = document.querySelector('.wind');
+
+
+
+
+        const fetchData = async () => {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`Помилка запиту  ${response.status}`);
+
+                const weather = await response.json();
+                if (weather.cod !== 200) {
+                    document.textContent = 'Помилка при отриманні даних'
+                }
+                console.log(`info:`, weather);
+                city.textContent = `City : ${weather.name}`;
+                temp.textContent = `Temperature: ${weather.main.temp}`;
+                humidity.textContent = `Humidity: ${weather.main.humidity}`;
+                humidity.textContent = `Humidity: ${weather.main.humidity}`;
+                description.textContent = `Description: ${weather.weather[0].description}`;
+                wind.textContent = ` deg: ${weather.wind.deg}, gust: ${weather.wind.gust}, speed: ${weather.wind.speed}`
+
+            }
+            catch (err) {
+                console.error(err)
+            }
+        }
+        btn.addEventListener('click', function () {
+            fetchData()
+        })
+
+        fetchData()
+    </script>
+
+
+</body>
+
+</html>
