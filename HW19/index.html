@@ -53,16 +53,12 @@
                 if (!response.ok) throw new Error(`Помилка запиту  ${response.status}`);
 
                 const weather = await response.json();
-                if (weather.cod !== 200) {
-                    document.textContent = 'Помилка при отриманні даних'
-                }
                 console.log(`info:`, weather);
                 city.textContent = `City : ${weather.name}`;
                 temp.textContent = `Temperature: ${weather.main.temp}`;
                 humidity.textContent = `Humidity: ${weather.main.humidity}`;
-                humidity.textContent = `Humidity: ${weather.main.humidity}`;
                 description.textContent = `Description: ${weather.weather[0].description}`;
-                wind.textContent = ` deg: ${weather.wind.deg}, gust: ${weather.wind.gust}, speed: ${weather.wind.speed}`
+                wind.textContent = ` deg: ${weather?.wind?.deg??'Unknown'}, gust: ${weather?.wind?.gust?? 'Unknown'}, speed: ${weather?.wind?.speed??'Unknown'}`
 
             }
             catch (err) {
