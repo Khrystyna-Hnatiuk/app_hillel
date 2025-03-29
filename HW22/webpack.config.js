@@ -18,6 +18,7 @@ module.exports = {
 
 
     },
+    watch:true,
     stats: {
         children: true,  
       },
