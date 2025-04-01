@@ -7,6 +7,8 @@ const TerserPlugin = require('terser-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 
+
+
 module.exports = {
     entry:  './js/index.js', 
     mode: 'production',
@@ -52,6 +54,7 @@ module.exports = {
               },
             },
           }),
+      
  
 
        
