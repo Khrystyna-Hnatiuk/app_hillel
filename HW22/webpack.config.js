@@ -11,12 +11,12 @@ const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 
 module.exports = {
     entry:  './js/index.js', 
-    mode: 'production',
+    mode: 'development',
     output: {
         filename: "bundle.js",
         path: path.resolve(__dirname, 'dist'),
         clean: true,
-        publicPath: '/', 
+        // publicPath: '/', 
 
 
     },
@@ -63,10 +63,14 @@ module.exports = {
 
     module: {
         rules: [
-            {
-              test: /\.(css|scss)$/i,
-              use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-            },
+          {
+            test: /\.(scss|css)$/i,
+            use: [
+              MiniCssExtractPlugin.loader,  // Витягує CSS в окремий файл
+              'css-loader',  // Завантажує CSS
+              'sass-loader',  // Перетворює SCSS в CSS
+            ],
+          },
          
             {
               test: /\.(png|jpe?g|gif)$/i,
@@ -106,7 +110,7 @@ module.exports = {
         open: true, 
         historyApiFallback: true, 
         liveReload: true,  
-
+      
     }
     
 
