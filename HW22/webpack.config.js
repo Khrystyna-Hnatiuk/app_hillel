@@ -10,13 +10,12 @@ const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 
 
 module.exports = {
-    entry:  './js/index.js', 
+    entry:  './src/js/index.js', 
     mode: 'development',
     output: {
         filename: "bundle.js",
         path: path.resolve(__dirname, 'dist'),
         clean: true,
-        // publicPath: '/', 
 
 
     },
@@ -35,7 +34,7 @@ module.exports = {
             filename: 'styles.css',
         }),
         new HtmlWebpackPlugin({
-            template: './index.html', 
+            template: './src/index.html', 
             filename: 'index.html',    
             inject:'body'
         }),
@@ -103,7 +102,7 @@ module.exports = {
   
     devServer: {
         static: {
-            directory: path.join(__dirname, 'dist'), 
+            directory: path.join(__dirname, 'src'), 
         },
         compress: true, 
         port: 9004, 
