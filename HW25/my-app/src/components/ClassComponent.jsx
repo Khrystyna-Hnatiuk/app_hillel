@@ -41,6 +41,10 @@ export default class ClassComponent extends Component {
             winnerImg: '',
             showResults: false
         })
+        localStorage.removeItem('winner')
+        localStorage.removeItem('count click')
+        
+
     }
 
     handleWinner=()=> {
@@ -63,6 +67,9 @@ export default class ClassComponent extends Component {
             winnerImg: winner ? emojiImages[winner[0]] : '',
             showResults: true
         })
+        localStorage.setItem('winner' , winner[0])
+        localStorage.setItem('count click' , winner[1])
+
     }
 
     render() {
