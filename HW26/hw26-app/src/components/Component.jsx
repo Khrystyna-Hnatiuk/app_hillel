@@ -19,6 +19,28 @@ const VoteEmojies = () => {
         showResults: false,
         maxClick: 0,
     });
+    const emojiImages = {
+        eyeClick: eyeEmoji,
+        pumpkinClick: pumpkinEmoji,
+        faceClick: faceEmoji,
+        squirelClick: squirelEmoji,
+        sweatClick: sweatEmoji
+    }
+    useEffect (()=>{
+        const storedWinner = localStorage.getItem('winner')
+        const storedCount = localStorage.getItem('count click');
+        if(storedCount&&storedWinner){
+            setVotes((prev) => ({
+                ...prev,
+                winner: storedWinner,
+                maxClick: storedCount,
+                winnerImg: emojiImages[storedWinner],
+                showResults: true
+            }))
+    
+        }
+
+    },[])
 
     const handleClick = (emoji) => {
         setVotes((prev) => ({
@@ -32,13 +54,7 @@ const VoteEmojies = () => {
         const maxClick = Math.max(...values.map(([key, value]) => value));
 
         const winner = values.find(([key, value]) => value === maxClick);
-        const emojiImages = {
-            eyeClick: eyeEmoji,
-            pumpkinClick: pumpkinEmoji,
-            faceClick: faceEmoji,
-            squirelClick: squirelEmoji,
-            sweatClick: sweatEmoji
-        }
+      
         setVotes((prev) => ({
             ...prev,
             winner: winner ? winner[0] : '',
@@ -68,21 +84,7 @@ const VoteEmojies = () => {
         localStorage.removeItem('count click')
 
 
-        useEffect (()=>{
-            const storedWinner = localStorage.getItem('winner')
-            const storedCount = localStorage.getItem('count click');
-            if(storedCount&&storedWinner){
-                setVotes((prev) => ({
-                    ...prev,
-                    winner: storedWinner,
-                    maxClick: storedCount,
-                    winnerImg: emojiImages[winner[0]],
-                    showResults: true
-                }))
-        
-            }
-
-        },[])
+      
     }
     return (
         <>
