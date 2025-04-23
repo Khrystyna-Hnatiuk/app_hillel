@@ -1,11 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const storedTasks = JSON.parse(localStorage.getItem('todos'))|| []
 const initialState = {
-    tasks: storedTasks
+    tasks: []
 }
 const todolistSlice = createSlice({
-    name: 'todolist',
+    name: 'todos',
     initialState,
     reducers: {
         addTask: (state, action) => {
@@ -14,9 +13,7 @@ const todolistSlice = createSlice({
                 id:Date.now(),
                 text:action.payload
             });
-             localStorage.setItem('todos', JSON.stringify(
-                state.tasks
-            ))
+ 
         }
     }
 

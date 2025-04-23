@@ -6,7 +6,7 @@ import { addTask } from "../store/features/todolistSlice";
 import { useSelector } from "react-redux";
 const TodoList = () => {
     const dispatch = useDispatch()
-    const [value, setValue] = useState();
+    const [value, setValue] = useState('');
     const [count, setCount] = useState(0);
     const { theme } = useTheme()
     const todos = useSelector((state) => state.todos.tasks);
