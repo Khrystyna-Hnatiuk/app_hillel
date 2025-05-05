@@ -19,6 +19,7 @@ export default [
     plugins: {
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
+      "plugin:cypress/recommended":true
     },
     rules: {
       ...js.configs.recommended.rules,

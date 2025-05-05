@@ -8,12 +8,12 @@ const todolistSlice = createSlice({
     initialState,
     reducers: {
         addTask: (state, action) => {
-           
+
             state.tasks.push({
-                id:Date.now(),
-                text:action.payload
+                id: Date.now(),
+                text: action.payload
             });
- 
+
         }
     }
 

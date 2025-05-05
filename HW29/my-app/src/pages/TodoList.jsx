@@ -8,40 +8,51 @@ const TodoList = () => {
     const dispatch = useDispatch()
     const [value, setValue] = useState('');
     const [count, setCount] = useState(0);
+    const [error,setError] = useState('')
     const { theme } = useTheme()
     const todos = useSelector((state) => state.todos.tasks);
 
+    const handleSubmit=(e)=>{  
+              e.preventDefault();
+
+        if(value.trim()===''){
+        setError('This field can not be empty')
+        return
+         }
+        setError('')
+        dispatch(addTask(value));
+        setValue('');
+        setCount((prev) => prev + 1)
+    }
     return (
         <><div className="flex flex-col items-center justify-between">
             <h1 className={`text-[30px] text-center mb-[15px] ${theme === 'dark' ? 'text-white' : 'text-black'}`}>ToDoList</h1>
             <div className="min-w-[700px]">
-                <form onSubmit={(e) => {
-                    e.preventDefault();
-                    dispatch(addTask(value));
-                    setValue('');
-                    setCount((prev) => prev + 1)
-                }}
+                <form onSubmit={handleSubmit}
                     className="justify-center flex flex-col items-center ">
                     <input
                         value={value}
                         onChange={(e) => setValue(e.target.value)}
-
+                        onBlur={() => {
+                            if (value.trim() !== '') {
+                              setError('');
+                            }
+                          }}
+                        placeholder="Enter task"
                         type="text"
-                        className={`min-h-[25px]  p-[10px] w-full border border-solid ${theme === 'dark' ? 'bg-[#242424] text-white' : 'border border-black p-4 bg-gray-200 text-gray-900'}`} required />
-
+                        className={`min-h-[25px]  p-[10px] w-full border border-solid ${theme === 'dark' ? 'bg-[#242424] text-white' : 'border border-black p-4 bg-gray-200 text-gray-900'}`}  />
                     <div className="w-full min-h-[20px] h-[20px] flex items-center">
-                        <p className="text-red-500 text-sm">
+                    {error && <p data-testid="error-message" className="text-red-500">{error}</p>}
 
-                        </p>
-                    </div>
+                    </div> 
 
                     <button type="submit"
-
+        
                         className={`bg-[#ffff] mt-2  text-black rounded-xl border-none cursor-pointer w-[200px] h-[50px] text-[20px] hover:font-bold ${theme === 'dark' ? 'text-black bg-gray-200 ' : 'bg-gray-800 border  border-gray-800 text-white'}`}
-                    >Додати</button>
+                    >Add</button>
                 </form>
                 <div className="text-[30px] ">Todos</div>
-                <hr  className="text-gray-600"/>
+                <hr className="text-gray-600" />
 
                 <ul className="mt-4">
                     {todos.map((task) => (
@@ -62,3 +73,28 @@ const TodoList = () => {
     )
 }
 export default TodoList
+
+
+// import { render, screen } from '@testing-library/react';
+// import { Provider } from 'react-redux';
+// import { store } from '../store';
+// import { vi } from 'vitest';
+// import TodoList from './TodoList';
+
+// vi.mock('../components/Theme', () => ({
+//     useTheme: vi.fn().mockReturnValue({ theme: 'light' }),
+//   }));
+  
+
+// describe('TodoList Component', () => {
+//   it('renders the ToDoList heading', () => {
+//     render(
+//       <Provider store={store}> 
+//         <TodoList />
+//       </Provider>
+//     );
+
+//     const heading = screen.getByRole('heading', { name: /ToDoList/i });
+//     expect(heading).toBeInTheDocument();
+//   });
+// });

@@ -14,6 +14,7 @@ const Products = () => {
 
     const dispatch = useDispatch();
     const favorites = useSelector(({ favorites }) => favorites.items);
+    
     const isFavorite =(product)=>{
         return favorites.find((item) => item.id === product.id);
     } 
