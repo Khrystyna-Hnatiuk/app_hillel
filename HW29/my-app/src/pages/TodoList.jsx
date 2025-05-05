@@ -74,27 +74,3 @@ const TodoList = () => {
 }
 export default TodoList
 
-
-// import { render, screen } from '@testing-library/react';
-// import { Provider } from 'react-redux';
-// import { store } from '../store';
-// import { vi } from 'vitest';
-// import TodoList from './TodoList';
-
-// vi.mock('../components/Theme', () => ({
-//     useTheme: vi.fn().mockReturnValue({ theme: 'light' }),
-//   }));
-  
-
-// describe('TodoList Component', () => {
-//   it('renders the ToDoList heading', () => {
-//     render(
-//       <Provider store={store}> 
-//         <TodoList />
-//       </Provider>
-//     );
-
-//     const heading = screen.getByRole('heading', { name: /ToDoList/i });
-//     expect(heading).toBeInTheDocument();
-//   });
-// });
