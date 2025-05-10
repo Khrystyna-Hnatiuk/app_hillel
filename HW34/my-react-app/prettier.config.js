@@ -7,3 +7,4 @@ export default {
     bracketSpacing: true,
     arrowParens: 'avoid',
   };
+  
