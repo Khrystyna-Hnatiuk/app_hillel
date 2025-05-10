@@ -23,7 +23,7 @@ const AboutPage = () => {
             ⚡ <strong>React + Vite</strong> — fast, modern tooling
           </li>
           <li>
-            🌐 <strong>React Router</strong> with <code>createBrowserHistory</code>
+            🌐 <strong>React Router</strong> with createBrowserHistory
           </li>
           <li>
             🎨 <strong>TailwindCSS</strong> — fully  UI
