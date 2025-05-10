@@ -1,4 +1,3 @@
-// import { Router } from 'redux-first-history/rr6';
 import { HistoryRouter } from 'redux-first-history/rr6';
 import { Toaster } from 'react-hot-toast';
 import { Provider } from 'react-redux';
